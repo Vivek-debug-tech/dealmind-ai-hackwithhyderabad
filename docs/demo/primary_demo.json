@@ -1,0 +1,73 @@
+{
+  "demo_id": "DEMO-001",
+  "primary_prospect": "Acme Technologies",
+  "deal_id": "DEAL-001",
+
+  "demo_objective": "Demonstrate that DealMind provides more useful sales preparation when it can remember historical prospect interactions.",
+
+  "final_user_query": "Prepare me for my call with Acme.",
+
+  "memory_sequence": [
+    {
+      "call_id": "CALL-001",
+      "importance": "high",
+      "signals": [
+        "Pricing is considered high.",
+        "Salesforce is a competing solution.",
+        "Budget is initially not considered a blocker."
+      ],
+      "memory_to_recall": [
+        "Pricing objection",
+        "Salesforce competitor",
+        "Initial budget position"
+      ]
+    },
+    {
+      "call_id": "CALL-002",
+      "importance": "high",
+      "signals": [
+        "SAP integration is a major technical concern.",
+        "Customer wants to understand customization and integration effort."
+      ],
+      "memory_to_recall": [
+        "SAP integration concern",
+        "Technical evaluation concern"
+      ]
+    },
+    {
+      "call_id": "CALL-003",
+      "importance": "critical",
+      "signals": [
+        "Customer budget position has changed.",
+        "Customer may need to reduce project scope.",
+        "Customer is considering phased implementation."
+      ],
+      "memory_to_recall": [
+        "Changed budget signal",
+        "Reduced scope possibility",
+        "Phased implementation"
+      ]
+    }
+  ],
+
+  "critical_contradiction": {
+    "topic": "Budget",
+    "earlier_statement": "Budget was not considered a blocker.",
+    "later_statement": "We may need to reduce the project scope because of budget.",
+    "source_call": "CALL-003",
+    "expected_effect": "Increase deal risk."
+  },
+
+  "expected_agent_behavior": [
+    "Recall the pricing objection.",
+    "Recall that Salesforce was mentioned as a competitor.",
+    "Recall the SAP integration concern.",
+    "Recall the earlier budget position.",
+    "Recognize that the latest budget signal contradicts the earlier position.",
+    "Identify increased deal risk.",
+    "Recommend discussing phased implementation.",
+    "Recommend prioritizing essential capabilities for Phase 1."
+  ],
+
+  "success_condition": "The final response should be materially more specific because the agent remembers the historical interactions."
+}

@@ -1,0 +1,104 @@
+{
+  "deal_id": "DEAL-001",
+  "prospect": "Acme Technologies",
+  "industry": "SaaS",
+  "deal_size": 180000,
+  "currency": "USD",
+  "stage": "Negotiation",
+
+  "stakeholders": [
+    {
+      "name": "Sarah Mitchell",
+      "role": "VP of Sales",
+      "priority": "Business value and ROI"
+    },
+    {
+      "name": "David Chen",
+      "role": "CTO",
+      "priority": "Technical integration and security"
+    },
+    {
+      "name": "Michael Roberts",
+      "role": "CFO",
+      "priority": "Budget and commercial terms"
+    }
+  ],
+
+  "competitors": [
+    "Salesforce"
+  ],
+
+  "current_objections": [
+    "Pricing",
+    "SAP integration",
+    "Budget"
+  ],
+
+  "budget_signal": {
+    "initial": "Budget was not considered a blocker.",
+    "current": "Budget may require reducing the project scope."
+  },
+
+  "technical_concerns": [
+    "SAP integration",
+    "Potential customization effort"
+  ],
+
+  "deal_risk": {
+    "initial": "Medium",
+    "current": "High",
+    "reason": "Budget position changed during the sales cycle."
+  },
+
+  "calls": [
+    {
+      "call_id": "CALL-001",
+      "date": "2026-09-20",
+      "type": "Discovery Call",
+      "participants": [
+        "Sarah Mitchell",
+        "Sales Representative"
+      ],
+      "transcript": "The sales representative introduced the platform and discussed Acme Technologies' requirements. Sarah Mitchell said that Acme liked the solution but considered the pricing significantly higher than Salesforce. She explained that Salesforce was being considered as an alternative and that Acme would need a strong justification for the additional cost. Sarah also indicated that budget was not currently a blocker for the project."
+    },
+
+    {
+      "call_id": "CALL-002",
+      "date": "2026-09-23",
+      "type": "Technical Evaluation",
+      "participants": [
+        "David Chen",
+        "Sales Representative"
+      ],
+      "transcript": "David Chen reviewed the technical aspects of the proposed solution. He said that the primary technical concern was integration with Acme's existing SAP environment. He wanted to understand how much custom integration would be required and whether the implementation could fit into Acme's existing architecture. The sales representative agreed to provide additional integration information."
+    },
+
+    {
+      "call_id": "CALL-003",
+      "date": "2026-09-26",
+      "type": "Commercial Review",
+      "participants": [
+        "Michael Roberts",
+        "Sales Representative"
+      ],
+      "transcript": "Michael Roberts reviewed the commercial proposal and explained that Acme's budget situation had changed. During the earlier discovery discussion, budget had not been considered a blocker, but Michael now said that Acme might need to reduce the project scope because of budget constraints. He asked whether the implementation could be phased and which capabilities should be prioritized for the first phase."
+    }
+  ],
+
+  "contradictions": [
+    {
+      "topic": "Budget",
+      "earlier_signal": "Budget was not considered a blocker.",
+      "later_signal": "Budget may require reducing the project scope.",
+      "detected_in": "CALL-003",
+      "impact": "Increased deal risk",
+      "recommended_response": "Discuss phased implementation and prioritize essential capabilities for Phase 1."
+    }
+  ],
+
+  "key_commitments": [
+    "Provide additional SAP integration information.",
+    "Review pricing options.",
+    "Discuss phased implementation if required."
+  ]
+}
