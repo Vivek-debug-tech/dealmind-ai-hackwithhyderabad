@@ -168,6 +168,42 @@ def compare_preparation(request: PrepareRequest):
                     cross_deal_memories=cross_deal_memories
                 )
                 
+                if cross_deal_memories:
+                    import re
+                    found_deal_ids = set()
+                    for mem in cross_deal_memories:
+                        matches = re.findall(r'(DEAL-\d+)', mem)
+                        for match in matches:
+                            if match != request.deal_id:
+                                found_deal_ids.add(match)
+                                
+                    if found_deal_ids:
+                        current_dir = os.path.dirname(os.path.abspath(__file__))
+                        data_dir = os.path.abspath(os.path.join(current_dir, "..", "..", "..", "data", "prospects"))
+                        cd_filepath = os.path.join(data_dir, "closed_deals.json")
+                        deterministic_deals = []
+                        try:
+                            with open(cd_filepath, 'r', encoding='utf-8') as f:
+                                closed_deals = json.load(f)
+                                for d in closed_deals:
+                                    if d.get("deal_id") in found_deal_ids:
+                                        tactic = d.get("tactic", "")
+                                        objection = d.get("objection", "")
+                                        formatted_tactic = f"{tactic} ({objection})" if objection else tactic
+                                        deterministic_deals.append({
+                                            "deal_id": d["deal_id"],
+                                            "outcome": d["outcome"],
+                                            "tactic": formatted_tactic
+                                        })
+                        except Exception as e:
+                            logger.error(f"Error reading closed_deals.json: {e}")
+                        
+                        if deterministic_deals:
+                            if "similar_deals" not in with_hindsight_analysis or not isinstance(with_hindsight_analysis["similar_deals"], dict):
+                                with_hindsight_analysis["similar_deals"] = {}
+                            with_hindsight_analysis["similar_deals"]["deals"] = deterministic_deals
+                            with_hindsight_analysis["similar_deals"]["count"] = len(deterministic_deals)
+                
                 memories_used = []
                 for i, mem in enumerate(with_memories):
                     source = "CRM" if (latest_context and i == 0) else "Hindsight"

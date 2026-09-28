@@ -169,6 +169,7 @@ body {
 .prep-head { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 9px; }
 .prep-head .section-title { margin: 0; }
 .prep-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.prep-grid-2cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .prep-row { min-width: 0; padding: 8px 10px; border: 1px solid #E5EFEB; border-radius: 7px; background: #F8FBFA; }
 .prep-row .label { font-size: 9px; color: var(--teal); font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
 .prep-row .value { font-size: 10px; line-height: 1.4; }
@@ -236,7 +237,7 @@ button.prepare-btn:focus-visible, .memory-toggle button:focus-visible { outline:
   .timeline { grid-template-columns: 1fr; gap: 8px; }
   .t-item:not(:last-child)::after { content: '↓'; right: 12px; top: auto; bottom: -15px; transform: none; z-index: 1; }
   .prep-head { align-items: flex-start; }
-  .prep-grid { grid-template-columns: 1fr; }
+  .prep-grid, .prep-grid-2cols { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 621px) and (max-width: 820px) {

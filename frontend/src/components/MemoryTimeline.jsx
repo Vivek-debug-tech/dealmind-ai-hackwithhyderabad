@@ -39,10 +39,29 @@ export default function MemoryTimeline({ deal, comparison, activeMode, flashKey 
       }
     });
 
-    unique.sort((a, b) => a.call.localeCompare(b.call));
-    items = unique;
+    const grouped = new Map();
+    unique.forEach(item => {
+      if (!grouped.has(item.call)) {
+        grouped.set(item.call, item);
+      } else {
+        if (item.flag && !grouped.get(item.call).flag) {
+          grouped.set(item.call, item);
+        }
+      }
+    });
+    
+    items = Array.from(grouped.values());
+    items.sort((a, b) => a.call.localeCompare(b.call));
+    
+    items = items.map((item, index) => {
+      return {
+        ...item,
+        callLabel: `Call ${index + 1} (${item.call})`,
+      };
+    });
   } else {
     totalMemories = items.length;
+    items = items.map(item => ({ ...item, callLabel: item.call }));
   }
 
   return (
@@ -54,7 +73,7 @@ export default function MemoryTimeline({ deal, comparison, activeMode, flashKey 
           <div key={i} style={{ display: 'flex', gap: '8px', fontSize: '11px' }}>
             <span style={{ color: item.flag ? '#C78631' : '#708484', marginTop: '1px' }}>●</span>
             <div>
-              <span style={{ fontWeight: '650', color: 'var(--ink)' }}>{item.call}</span> <span style={{ color: 'var(--ink-soft)' }}>— {item.summary}</span>
+              <span style={{ fontWeight: '650', color: 'var(--ink)' }}>{item.callLabel}</span> <span style={{ color: 'var(--ink-soft)' }}>— {item.summary}</span>
               {expanded && (
                 <div style={{ marginTop: '4px', fontSize: '10px', color: 'var(--ink-soft)', padding: '6px 8px', background: '#F8F9FF', borderRadius: '4px', border: '1px solid #E3E6F6' }}>
                   {item.full_text || item.summary}
@@ -66,7 +85,7 @@ export default function MemoryTimeline({ deal, comparison, activeMode, flashKey 
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '10px', color: 'var(--ink-soft)', borderTop: '1px solid var(--line)', paddingTop: '10px' }}>
-        <span>{totalMemories} memories recalled {similarCount > 0 ? `· ${similarCount} similar closed deals` : ''}</span>
+        <span>Recalled {totalMemories} memories {similarCount > 0 ? `· ${similarCount} similar closed deals` : ''}</span>
         <button onClick={() => setExpanded(!expanded)} style={{ background: 'transparent', border: 'none', color: 'var(--teal)', cursor: 'pointer', textDecoration: 'none', fontWeight: '650', marginLeft: 'auto' }}>
           {expanded ? 'Hide evidence' : 'View evidence'}
         </button>

@@ -58,7 +58,7 @@ export default function NextCallPrep({
         </div>
       </div>
 
-      <div className="prep-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)', marginBottom: '10px' }}>
+      <div className="prep-grid-2cols" style={{ marginBottom: '10px' }}>
         <div className="prep-row" style={{ background: 'var(--teal-soft)', borderColor: 'var(--line-strong)' }}>
           <div className="label">RECOMMENDED ACTION</div>
           <div className="value" style={{ fontSize: '12px', fontWeight: '700' }}>{rec.action}</div>
@@ -78,18 +78,23 @@ export default function NextCallPrep({
               <span style={{ fontSize: '9px', color: 'var(--ink-soft)', background: '#F4F9F7', padding: '2px 6px', borderRadius: '4px', border: '1px solid var(--line)' }}>✦ Retrieved from Hindsight</span>
             </div>
             
+            {similarDeal.evidence && (
+              <div style={{ fontSize: '11px', color: 'var(--ink)', marginBottom: '10px', paddingBottom: '10px', borderBottom: '1px dashed #E0ECE8' }}>
+                {similarDeal.evidence}
+              </div>
+            )}
+            
             {similarDeal.deals.map((d, idx) => {
               const isWon = d.outcome === "WON";
-              const isFirst = idx === 0;
               return (
-                <div key={idx} style={{ marginTop: isFirst ? '0' : '8px', paddingTop: isFirst ? '0' : '8px', borderTop: isFirst ? 'none' : '1px dashed #E0ECE8', display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                <div key={idx} style={{ marginTop: idx === 0 ? '0' : '10px', paddingTop: idx === 0 ? '0' : '10px', borderTop: idx === 0 ? 'none' : '1px dashed #E0ECE8', display: 'flex', flexDirection: 'column', gap: '2px' }}>
                   <div style={{ color: isWon ? 'var(--teal)' : '#B83D4B', fontWeight: '800', fontSize: isWon ? '11px' : '9px', opacity: isWon ? 1 : 0.85 }}>
-                    {isWon ? `✓ ${d.deal_id} · ${d.outcome}` : `Counterexample: ${d.deal_id} · ${d.outcome}`}
+                    {isWon ? `✓ ${d.deal_id} · ${d.outcome}` : `◇ ${d.deal_id} · ${d.outcome}`}
                   </div>
-                  <div style={{ fontSize: '11px', color: 'var(--ink)', opacity: isWon ? 1 : 0.85 }}>
-                    {isFirst ? similarDeal.evidence : `Tactic: ${d.tactic} resulted in ${d.outcome}.`}
+                  <div style={{ fontSize: '10px', color: 'var(--ink-soft)', marginTop: '2px' }}>
+                    {isWon ? 'Tactic: ' : 'Counterexample: '}
+                    <span style={{ fontWeight: '650', color: 'var(--ink)' }}>{d.tactic}</span>
                   </div>
-                  {isFirst && <div style={{ fontSize: '10px', color: 'var(--ink-soft)', marginTop: '2px' }}>Tactic used: <span style={{ fontWeight: '650', color: 'var(--ink)' }}>{d.tactic}</span></div>}
                 </div>
               );
             })}
