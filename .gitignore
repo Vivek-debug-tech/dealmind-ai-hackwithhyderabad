@@ -3,3 +3,7 @@ node_modules/
 __pycache__/
 *.pyc
 .env
+
+# Python virtual environment
+venv/
+backend/venv/
