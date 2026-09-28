@@ -1,0 +1,106 @@
+{
+  "deal_id": "DEAL-002",
+  "prospect": "NovaRetail",
+  "industry": "Retail and E-commerce",
+  "deal_size": 125000,
+  "currency": "USD",
+  "stage": "Evaluation",
+
+  "stakeholders": [
+    {
+      "name": "Emily Carter",
+      "role": "VP of Digital Commerce",
+      "priority": "Customer experience and implementation timeline"
+    },
+    {
+      "name": "James Wilson",
+      "role": "Director of Engineering",
+      "priority": "Platform integration"
+    },
+    {
+      "name": "Rachel Adams",
+      "role": "Security Manager",
+      "priority": "Security and compliance"
+    }
+  ],
+
+  "competitors": [
+    "HubSpot"
+  ],
+
+  "current_objections": [
+    "Implementation timeline",
+    "Feature coverage",
+    "Security review"
+  ],
+
+  "budget_signal": {
+    "initial": "Budget is approved for the planned implementation.",
+    "current": "Budget remains approved but implementation timing is becoming more important."
+  },
+
+  "technical_concerns": [
+    "E-commerce platform integration",
+    "Security review"
+  ],
+
+  "deal_risk": {
+    "initial": "Medium",
+    "current": "Medium-High",
+    "reason": "The customer has an increasingly urgent implementation timeline and requires security approval."
+  },
+
+  "calls": [
+    {
+      "call_id": "CALL-001",
+      "date": "2026-09-18",
+      "type": "Discovery Call",
+      "participants": [
+        "Emily Carter",
+        "Sales Representative"
+      ],
+      "transcript": "Emily Carter explained that NovaRetail is evaluating solutions to improve its digital commerce operations. She said the company has an approved budget and is primarily focused on completing the implementation before the next major retail season. The sales representative explained the expected implementation approach and timeline."
+    },
+
+    {
+      "call_id": "CALL-002",
+      "date": "2026-09-21",
+      "type": "Product Evaluation",
+      "participants": [
+        "Emily Carter",
+        "James Wilson",
+        "Sales Representative"
+      ],
+      "transcript": "James Wilson reviewed the technical capabilities of the platform. He asked about integration with NovaRetail's existing e-commerce platform. Emily also said that NovaRetail was comparing the solution with HubSpot and wanted to understand whether the proposed platform provided enough features to justify switching."
+    },
+
+    {
+      "call_id": "CALL-003",
+      "date": "2026-09-24",
+      "type": "Security Review",
+      "participants": [
+        "Rachel Adams",
+        "James Wilson",
+        "Sales Representative"
+      ],
+      "transcript": "Rachel Adams joined the discussion to review security requirements. She explained that NovaRetail requires a security assessment before approving the implementation. She requested information about data protection, access controls, and the security review process."
+    },
+
+    {
+      "call_id": "CALL-004",
+      "date": "2026-09-27",
+      "type": "Commercial and Timeline Review",
+      "participants": [
+        "Emily Carter",
+        "Sales Representative"
+      ],
+      "transcript": "Emily Carter said the approved budget remains available, but the implementation timeline has become more urgent because the retail season is approaching. She said NovaRetail needs confidence that the security review and integration work can be completed without delaying the launch."
+    }
+  ],
+
+  "key_commitments": [
+    "Provide e-commerce integration details.",
+    "Provide security documentation.",
+    "Confirm an implementation timeline."
+  ]
+}

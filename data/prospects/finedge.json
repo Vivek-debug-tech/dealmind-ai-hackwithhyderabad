@@ -1,0 +1,105 @@
+{
+  "deal_id": "DEAL-003",
+  "prospect": "FinEdge",
+  "industry": "Financial Services",
+  "deal_size": 250000,
+  "currency": "USD",
+  "stage": "Procurement",
+
+  "stakeholders": [
+    {
+      "name": "Daniel Brooks",
+      "role": "Chief Technology Officer",
+      "priority": "Security and technical architecture"
+    },
+    {
+      "name": "Laura Bennett",
+      "role": "VP of Operations",
+      "priority": "Business impact and ROI"
+    },
+    {
+      "name": "Robert King",
+      "role": "Procurement Manager",
+      "priority": "Commercial terms and vendor requirements"
+    }
+  ],
+
+  "competitors": [
+    "ServiceNow"
+  ],
+
+  "current_objections": [
+    "ROI justification",
+    "Security requirements",
+    "Procurement terms"
+  ],
+
+  "budget_signal": {
+    "initial": "FinEdge has allocated budget for the project.",
+    "current": "Budget is available but procurement requires stronger commercial justification."
+  },
+
+  "technical_concerns": [
+    "Security architecture",
+    "Data access controls"
+  ],
+
+  "deal_risk": {
+    "initial": "Medium",
+    "current": "High",
+    "reason": "Procurement requirements have introduced additional commercial conditions."
+  },
+
+  "calls": [
+    {
+      "call_id": "CALL-001",
+      "date": "2026-09-16",
+      "type": "Discovery Call",
+      "participants": [
+        "Laura Bennett",
+        "Sales Representative"
+      ],
+      "transcript": "Laura Bennett explained that FinEdge is evaluating solutions that can improve operational efficiency. She said the project has an allocated budget but the leadership team needs a clear ROI case before final approval. The sales representative agreed to provide an estimated business impact analysis."
+    },
+
+    {
+      "call_id": "CALL-002",
+      "date": "2026-09-19",
+      "type": "Technical Review",
+      "participants": [
+        "Daniel Brooks",
+        "Sales Representative"
+      ],
+      "transcript": "Daniel Brooks reviewed the technical architecture and raised questions about security and data access controls. He wanted confirmation that sensitive financial information could be protected through appropriate access policies and that the implementation would satisfy FinEdge's security requirements."
+    },
+
+    {
+      "call_id": "CALL-003",
+      "date": "2026-09-23",
+      "type": "Business Review",
+      "participants": [
+        "Laura Bennett",
+        "Daniel Brooks",
+        "Sales Representative"
+      ],
+      "transcript": "Laura Bennett said the ROI analysis was useful and that the business case was becoming clearer. Daniel Brooks said the security requirements still needed to be documented before moving to procurement. The sales representative agreed to provide the requested security information."
+    },
+
+    {
+      "call_id": "CALL-004",
+      "date": "2026-09-26",
+      "type": "Procurement Review",
+      "participants": [
+        "Robert King",
+        "Sales Representative"
+      ],
+      "transcript": "Robert King explained that FinEdge is ready to proceed to procurement, but the procurement team requires additional commercial justification and specific vendor terms. He said the allocated budget is still available, but the commercial proposal must satisfy the procurement requirements before approval."
+    }
+  ],
+
+  "key_commitments": [
+    "Provide ROI analysis.",
+    "Provide security architecture documentation.",
+    "Review procurement requirements and commercial terms."
+  ]
+}
