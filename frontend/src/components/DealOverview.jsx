@@ -1,11 +1,14 @@
-export default function DealOverview({ deal }) {
+export default function DealOverview({ deal, comparison, activeMode }) {
+  const riskObj = comparison ? (activeMode === 'with' ? comparison.with_hindsight?.risk : comparison.without_memory?.risk) : deal.risk;
+  const levelStr = (riskObj?.level || 'low').toLowerCase();
+  
   const riskClass =
-    deal.risk.level === 'high' ? 'risk-high' :
-    deal.risk.level === 'medium' ? 'risk-medium' : 'risk-low';
+    levelStr === 'high' ? 'risk-high' :
+    levelStr === 'medium' ? 'risk-medium' : 'risk-low';
 
   const riskLabel =
-    deal.risk.level === 'high' ? 'High' :
-    deal.risk.level === 'medium' ? 'Medium' : 'Low';
+    levelStr === 'high' ? 'High' :
+    levelStr === 'medium' ? 'Medium' : 'Low';
 
   return (
     <div className="section">
@@ -31,6 +34,17 @@ export default function DealOverview({ deal }) {
           <div className={`risk-row ${riskClass}`}>
             <span className="risk-dot"></span>
             <span className="value">{riskLabel}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="metrics" style={{ marginTop: '8px', gridTemplateColumns: '1fr' }}>
+        <div className="metric" style={{ padding: '6px 10px', background: 'transparent' }}>
+          <div className="label">Key Stakeholders & Concerns</div>
+          <div className="value" style={{ fontSize: '11px', fontWeight: 'normal', display: 'flex', gap: '14px', flexWrap: 'wrap', marginTop: '2px' }}>
+            <span><strong>Michael Roberts (CFO)</strong>: Budget & Commercial</span>
+            <span><strong>David Chen (CTO)</strong>: SAP Integration</span>
+            <span><strong>Sarah Mitchell (VP Sales)</strong>: Pricing & ROI</span>
           </div>
         </div>
       </div>

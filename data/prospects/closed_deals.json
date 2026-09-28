@@ -1,0 +1,16 @@
+[
+  {
+    "deal_id": "DEAL-002",
+    "outcome": "WON",
+    "objection": "budget",
+    "tactic": "phased rollout",
+    "result": "customer accepted phased rollout"
+  },
+  {
+    "deal_id": "DEAL-003",
+    "outcome": "LOST",
+    "objection": "budget",
+    "tactic": "full-price proposal",
+    "result": "customer rejected the proposal"
+  }
+]
